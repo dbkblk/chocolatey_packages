@@ -14,13 +14,13 @@ It is designed to easy to use and be able to analyse your personal finance and b
 If you are looking for a completely free and easy application to manage your personal accounting, budget, finance then HomeBank should be the software of choice.</description>
     <projectUrl>http://homebank.free.fr/</projectUrl>
     <tags>admin homebank finance accounting</tags>
-    <copyright></copyright>
+    <copyright>© Maxime Doyen</copyright>
     <licenseUrl>http://www.gnu.org/copyleft/gpl.html</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/homebank</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>http://homebank.free.fr/img/web_title.pnghttp://homebank.free.fr/img/web_title.png</iconUrl>
-    <docsUrl>http://homebank.free.fr/help/index.html</docsUrl>
-    <bugTrackerUrl>https://launchpad.net/homebank/</bugTrackerUrl>
+    <iconUrl>http://homebank.free.fr/img/web_title.png</iconUrl>
+    <docsUrl>http://homebank.free.fr/help/</docsUrl>
+    <bugTrackerUrl>https://bugs.launchpad.net/homebank</bugTrackerUrl>
     <projectSourceUrl>https://code.launchpad.net/homebank</projectSourceUrl>
     <releaseNotes>http://homebank.free.fr/ChangeLog</releaseNotes>
   </metadata>
