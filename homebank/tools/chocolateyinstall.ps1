@@ -1,4 +1,4 @@
-﻿$packageName = '{{PackageName}}'
+﻿$packageName = 'homebank'
 $installerType = 'EXE'
 $url = '{{DownloadUrl}}'
 $silentArgs = '/silent'
