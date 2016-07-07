@@ -1,13 +1,13 @@
 Menu, Tray, Tip, PackageUpdater
-#Include tf.ahk
+#include %A_ScriptDir%\lib\tf.ahk
 
 ; This script will automatically update the homebank package
 
 name = homebank
 
 ; Download file
-UrlDownloadToFile, http://homebank.free.fr/downloads.php, temp.html
-FileRead, html, temp.html
+UrlDownloadToFile, http://homebank.free.fr/downloads.php, %A_ScriptDir%\temp.html
+FileRead, html, %A_ScriptDir%\temp.html
 
 ; Parse version
 startTxt = <p>The latest stable release of HomeBank is <strong>
@@ -20,7 +20,7 @@ version := SubStr(html, startPos + startLen + 1, stopPos - (startPos + startLen)
 ; Url 
 url = http://homebank.free.fr/public/HomeBank-%version%-setup.exe
 
-FileDelete, temp.html
+FileDelete, %A_ScriptDir%\temp.html
 
 IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
 {  
@@ -28,15 +28,15 @@ IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg
 
   ;MsgBox, Name is : %name%`nVersion is : %version% `nUrl is : %url%
   ; Copy dir
-  IfExist, unpacked\%name%\%version%
-    FileRemoveDir, unpacked\%name%\%version%, 1
+  IfExist, %A_ScriptDir%\unpacked\%name%\%version%
+    FileRemoveDir, %A_ScriptDir%\unpacked\%name%\%version%, 1
 
-  FileCreateDir, unpacked\%name%\
+  FileCreateDir, %A_ScriptDir%\unpacked\%name%\
 
-  IfNotExist, packed\%name%\
-    FileCreateDir, packed\%name%\
+  IfNotExist, %A_ScriptDir%\packed\%name%\
+    FileCreateDir, %A_ScriptDir%\packed\%name%\
 
-  FileCopyDir, %name%, unpacked\%name%\%version%
+  FileCopyDir, %name%, %A_ScriptDir%\unpacked\%name%\%version%
 
   ; Replace name, version, url
   nuspecFile = %A_ScriptDir%\unpacked\%name%\%version%\%name%.nuspec
