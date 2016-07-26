@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>microsoft-r-mkl</id>
+    <title>Microsoft R MKL</title>
+    <version>{{PackageVersion}}</version>
+    <authors>Microsoft, Intel and R Project</authors>
+    <owners>Hadrien Dussuel</owners>
+    <summary>Intel Math Kernel Library (Intel MKL) leverages Microsoft R Open by offering multithreaded performance to the R distribution.</summary>
+    <description>Intel Math Kernel Library (Intel MKL) leverages Microsoft R Open by offering multithreaded performance to the R distribution.</description>
+    <projectUrl>https://mran.revolutionanalytics.com</projectUrl>
+    <tags>admin r computation mathematics modelling</tags>
+    <copyright>© Microsoft, Intel</copyright>
+    <licenseUrl>https://mran.revolutionanalytics.com/assets/text/mkl-eula.txt</licenseUrl>
+    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/microsoft-r-mkl</packageSourceUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <iconUrl>https://mran.revolutionanalytics.com/assets/img/ClarkHead.d73204d7.png</iconUrl>
+    <docsUrl>https://mran.revolutionanalytics.com/documents/getting-started/</docsUrl>
+    <bugTrackerUrl>https://github.com/RevolutionAnalytics/RRO/issues</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/RevolutionAnalytics/RRO</projectSourceUrl>
+    <releaseNotes>https://github.com/RevolutionAnalytics/RRO/releases/tag/MRO-3.3.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

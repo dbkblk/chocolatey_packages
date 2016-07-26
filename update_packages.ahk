@@ -67,21 +67,31 @@ IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg
   updatePackage(name, version, url)
 }
 
-; ### Microsoft R Open
-
-name = microsoft-r-open
-version =
-url =
-
+; ### Microsoft R Open & RevoMath
 ; Download file
 UrlDownloadToFile, https://mran.revolutionanalytics.com/download/, %A_ScriptDir%\temp.html
 FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 
-RegExMatch(html, "\/install\/mro\/([\w\.]*)\/MRO-[\w\.]*-win.exe", version)
-url = https://mran.revolutionanalytics.com%version%
+RegExMatch(html, "\/install\/mro\/[\w\.]*\/MRO-([\w\.]*)-win.exe", versionR)
+RegExMatch(html, "\/install\/mro\/[\w\.]*\/RevoMath-([\w\.]*).exe", versionRevoMath)
 
-IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
+urlR = https://mran.revolutionanalytics.com%versionR%
+urlRevoMath = https://mran.revolutionanalytics.com%versionRevoMath%
+
+; MRO
+name = microsoft-r-open
+version =
+url =
+
+IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%versionR1%.nupkg 
 {  
-  updatePackage(name, version1, url)
+  updatePackage(name, versionR1, urlR)
+}
+
+; Revomath
+name = microsoft-r-mkl
+IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%versionRevoMath1%.nupkg 
+{  
+  updatePackage(name, versionRevoMath1, urlRevoMath)
 }
