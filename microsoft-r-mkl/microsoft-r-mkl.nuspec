@@ -9,7 +9,8 @@
     <authors>Microsoft, Intel and R Project</authors>
     <owners>Hadrien Dussuel</owners>
     <summary>Intel Math Kernel Library (Intel MKL) leverages Microsoft R Open by offering multithreaded performance to the R distribution.</summary>
-    <description>Intel Math Kernel Library (Intel MKL) leverages Microsoft R Open by offering multithreaded performance to the R distribution.</description>
+    <description>The multi-core machines of today offer parallel processing power. To take advantage of this, Microsoft R Open includes multi-threaded math libraries.
+These libraries make it possible for so many common R operations, such as matrix multiply/inverse, matrix decomposition, and some higher-level matrix operations, to compute in parallel and use all of the processing power available to reduce computation times.</description>
     <projectUrl>https://mran.revolutionanalytics.com</projectUrl>
     <tags>admin r computation mathematics modelling</tags>
     <copyright>© Microsoft, Intel</copyright>
