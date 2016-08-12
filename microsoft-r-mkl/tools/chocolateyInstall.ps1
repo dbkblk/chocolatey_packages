@@ -1,6 +1,8 @@
 $packageName = 'microsoft-r-mkl'
 $installerType = 'EXE'
 $url = '{{DownloadUrl}}'
+$checksum = '{{Checksum}}'
+$checkumType = 'sha256'
 $silentArgs = '/silent'
 $validExitCodes = @(0)
 
@@ -15,4 +17,4 @@ Write-Debug "$ahkExe start time:`t$($ahkProc.StartTime.ToShortTimeString())"
 Write-Debug "Process ID:`t$ahkId"                        
 Write-Debug "$Env:ChocolateyInstall\helpers\functions"
 
-Install-ChocolateyPackage "$packageName" "$installerType" "$silentArgs" "$url" -validExitCodes $validExitCodes
+Install-ChocolateyPackage "$packageName" "$installerType" "$silentArgs" "$url" -checksum $checksum -checksumType $checkumType -validExitCodes $validExitCodes

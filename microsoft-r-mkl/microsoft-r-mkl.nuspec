@@ -23,8 +23,8 @@ These libraries make it possible for so many common R operations, such as matrix
     <projectSourceUrl>https://github.com/RevolutionAnalytics/RRO</projectSourceUrl>
     <releaseNotes>https://github.com/RevolutionAnalytics/RRO/releases/tag/MRO-3.3.0</releaseNotes>
     <dependencies>
-      <dependency id="autohotkey.portable" />
-      <dependency id="microsoft-r-open" />
+      <dependency id="autohotkey.portable" version="1.1"/>
+      <dependency id="microsoft-r-open" version="{{PackageVersion}}" />
     </dependencies>
   </metadata>
   <files>
