@@ -9,7 +9,7 @@
     <authors>Microsoft and R Project</authors>
     <owners>Hadrien Dussuel</owners>
     <summary>World’s most powerful programming language for statistical computing, machine learning and graphics as well as a thriving global community of users, developers and contributors.</summary>
-    <description>Microsoft R Open is the enhanced distribution of open source R from Microsoft Corporation. Enhancements include multi-core processing, a fixed CRAN repository date, and reproducible R with the checkpoint package.</description>
+    <description>Microsoft R Open is the enhanced distribution of open source R from Microsoft Corporation. Enhancements include multi-core processing, a fixed CRAN repository date, and reproducible R with the checkpoint package. It includes Intel Math Kernel Library (Intel MKL) as well.</description>
     <projectUrl>https://mran.revolutionanalytics.com</projectUrl>
     <tags>admin r computation mathematics modelling</tags>
     <copyright>© Microsoft</copyright>

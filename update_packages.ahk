@@ -1,6 +1,6 @@
 Menu, Tray, Tip, PackageUpdater
 
-; This script will automatically update the packages
+; This script will automatically update the packages. It needs "checksum" to work.
 
 ; ## Functions ##
 updatePackage(name, version, url, url64 = "")
@@ -52,11 +52,11 @@ updatePackage(name, version, url, url64 = "")
   IfNotExist, %A_ScriptDir%\packed\%name%\
     FileCreateDir, %A_ScriptDir%\packed\%name%\
 
-  FileCopyDir, %name%, %A_ScriptDir%\unpacked\%name%\%version%
+  FileCopyDir, src\%name%, %A_ScriptDir%\unpacked\%name%\%version%
 
   ; Replace name, version, url
-  FileRead, nuspecFile, %A_ScriptDir%\%name%\%name%.nuspec
-  FileRead, installFile, %A_ScriptDir%\%name%\tools\chocolateyInstall.ps1
+  FileRead, nuspecFile, %A_ScriptDir%\src\%name%\%name%.nuspec
+  FileRead, installFile, %A_ScriptDir%\src\%name%\tools\chocolateyInstall.ps1
   nuspecFile := RegExReplace(nuspecFile, "{{PackageVersion}}", version)
   installFile := RegExReplace(installFile, "{{DownloadUrl}}", url)
   If sha
@@ -86,8 +86,6 @@ updatePackage(name, version, url, url64 = "")
 
 ; ## Packages ##
 ; ### Homebank
-name = homebank
-
 ; Download file
 UrlDownloadToFile, http://homebank.free.fr/downloads.php, %A_ScriptDir%\temp.html
 FileRead, html, %A_ScriptDir%\temp.html
@@ -99,57 +97,34 @@ startLen := StrLen(startTxt)
 stopTxt = </strong>. See the <a href="ChangeLog">ChangeLog</a>.</p>
 StringGetPos, startPos, html, %startTxt%
 StringGetPos, stopPos, html, %stopTxt%
-version := SubStr(html, startPos + startLen + 1, stopPos - (startPos + startLen))
 
-; Url 
+; Gather informations
+name = homebank
+version := SubStr(html, startPos + startLen + 1, stopPos - (startPos + startLen))
 url = http://homebank.free.fr/public/HomeBank-%version%-setup.exe
 
+; Update package
 IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
 {  
   updatePackage(name, version, url)
 }
 
-; ### Microsoft R Open & RevoMath
+; ### Microsoft R Open
 ; Download file
 UrlDownloadToFile, https://mran.revolutionanalytics.com/download/, %A_ScriptDir%\temp.html
 FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 
-RegExMatch(html, "\/install\/mro\/[\w\.]*\/MRO-([\w\.]*)-win.exe", versionR)
-RegExMatch(html, "\/install\/mro\/[\w\.]*\/RevoMath-([\w\.]*).exe", versionRevoMath)
+; Parse version
+RegExMatch(html, "\/install\/mro\/[\w\.]*\/microsoft-r-open-([\w\.]*).msi", version)
 
-urlR = https://mran.revolutionanalytics.com%versionR%
-urlRevoMath = https://mran.revolutionanalytics.com%versionRevoMath%
-
-; MRO
+; Gather informations
 name = microsoft-r-open
-version =
-url =
+version = %version1%
+url = https://mran.revolutionanalytics.com/install/mro/%version%/microsoft-r-open-%version%.msi
 
-IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%versionR1%.nupkg 
+; Update package
+IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
 {
-  updatePackage(name, versionR1, urlR)
-}
-
-; Revomath
-name = microsoft-r-mkl
-IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%versionRevoMath1%.nupkg 
-{  
-  updatePackage(name, versionRevoMath1, urlRevoMath)
-}
-
-; ### Qgis
-UrlDownloadToFile, http://qgis.org/en/site/forusers/download.html, %A_ScriptDir%\temp.html
-FileRead, html, %A_ScriptDir%\temp.html
-FileDelete, %A_ScriptDir%\temp.html
-RegExMatch(html, "<a href=""(http://qgis.org/downloads/QGIS-OSGeo4W-([\w\d\.\-]*)-[\d]-Setup-x86.exe)", link)
-RegExMatch(html, "<a href=""(http://qgis.org/downloads/QGIS-OSGeo4W-([\w\d\.\-]*)-[\d]-Setup-x86_64.exe)", link64)
-name = qgis
-version = %link2%
-url = %link1%
-url64 = %link641%
-
-IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg
-{  
-  updatePackage(name, version, url, url64)
+  updatePackage(name, version, url)
 }
