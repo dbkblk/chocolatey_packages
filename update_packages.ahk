@@ -52,7 +52,7 @@ updatePackage(name, version, url, url64 = "")
   IfNotExist, %A_ScriptDir%\packed\%name%\
     FileCreateDir, %A_ScriptDir%\packed\%name%\
 
-  FileCopyDir, src\%name%, %A_ScriptDir%\unpacked\%name%\%version%
+  FileCopyDir, %A_ScriptDir%\src\%name%, %A_ScriptDir%\unpacked\%name%\%version%
 
   ; Replace name, version, url
   FileRead, nuspecFile, %A_ScriptDir%\src\%name%\%name%.nuspec
