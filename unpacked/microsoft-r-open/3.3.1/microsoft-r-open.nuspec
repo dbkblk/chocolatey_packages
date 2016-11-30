@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>microsoft-r-open</id>
     <title>Microsoft R Open</title>
-    <version>3.3.1</version>
+    <version>3.3.1.1</version>
     <authors>Microsoft and R Project</authors>
     <owners>Hadrien Dussuel</owners>
     <summary>World’s most powerful programming language for statistical computing, machine learning and graphics as well as a thriving global community of users, developers and contributors.</summary>
