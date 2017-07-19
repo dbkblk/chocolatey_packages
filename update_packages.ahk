@@ -1,6 +1,7 @@
 Menu, Tray, Tip, PackageUpdater
 
 ; This script will automatically update the packages. It needs "checksum" to work.
+; Note : To test package locally, use "cinst -y packageName -dv -s ."
 
 ; ## Functions ##
 updatePackage(name, version, url, url64 = "")
@@ -92,9 +93,9 @@ FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 
 ; Parse version
-startTxt = <p>The latest stable release of HomeBank is <strong>
+startTxt = -setup.exe">&gt; HomeBank-
 startLen := StrLen(startTxt)
-stopTxt = </strong>. See the <a href="ChangeLog">ChangeLog</a>.</p>
+stopTxt = -setup.exe</a>
 StringGetPos, startPos, html, %startTxt%
 StringGetPos, stopPos, html, %stopTxt%
 
@@ -102,6 +103,9 @@ StringGetPos, stopPos, html, %stopTxt%
 name = homebank
 version := SubStr(html, startPos + startLen + 1, stopPos - (startPos + startLen))
 url = http://homebank.free.fr/public/HomeBank-%version%-setup.exe
+
+; Debug
+; MsgBox, %name%`n%version%`n%url%
 
 ; Update package
 IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
@@ -116,12 +120,15 @@ FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 
 ; Parse version
-RegExMatch(html, "\/install\/mro\/[\w\.]*\/microsoft-r-open-([\w\.]*).msi", version)
+RegExMatch(html, "\/install\/mro\/[\w\.]*\/microsoft-r-open-([\w\.]*).exe", version)
 
 ; Gather informations
 name = microsoft-r-open
 version = %version1%
-url = https://mran.revolutionanalytics.com/install/mro/%version%/microsoft-r-open-%version%.msi
+url = https://mran.revolutionanalytics.com/install/mro/%version%/microsoft-r-open-%version%.exe
+
+; Debug
+; MsgBox, %name%`n%version%`n%url%
 
 ; Update package
 IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
