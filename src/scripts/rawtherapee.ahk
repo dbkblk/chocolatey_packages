@@ -1,3 +1,9 @@
+; Ensure to be in the right relative directory
+IfExist, %A_ScriptDir%\rawtherapee.ahk
+{
+  SetWorkingDir, %A_WorkingDir%\..\..
+}
+
 ; ### Raw Therapee
 ; Download file
 UrlDownloadToFile, http://rawtherapee.com/downloads/, %A_ScriptDir%\temp.html
@@ -18,7 +24,7 @@ url = http://rawtherapee.com/releases_head/windows/RawTherapee_%version%_WinVist
 ; FileDelete, %A_ScriptDir%\..\..\packed\rawtherapee\rawtherapee.5.2.nupkg
 
 ; Update package (using custom routine because the standard function doesn't work with zip files)
-IfNotExist, %A_WorkingDir%\..\..\packed\%name%\%name%.%version%.nupkg 
+IfNotExist, %A_WorkingDir%\packed\%name%\%name%.%version%.nupkg 
 {
   ; Settings
   cacheDir = C:\cache
@@ -26,36 +32,32 @@ IfNotExist, %A_WorkingDir%\..\..\packed\%name%\%name%.%version%.nupkg
 
   ; Getting checksum of executable file
   SplitPath, url, fileName
-  cacheName = %cacheDir%\%name%\%version%\%fileName%
+  cacheName = %cacheDir%\%name%\%version%\%zipName%
   IfNotExist, %cacheName%
   {
       FileCreateDir, %cacheDir%\%name%\%version%
-      UrlDownloadToFile, %url%, %cacheName%
+      UrlDownloadToFile, %url%, %cacheName%.zip
       FileAppend,`n, %cacheName%.ignore,UTF-16
   }
-  SetWorkingDir, %cacheDir%\%name%\%version%\
-  RunWait, %comspec% /c 7z x -y RawTherapee_%version%_WinVista_64.zip,,Hide
-  RunWait, %comspec% /c checksum -t sha256 -f "%zipName%.exe" > %A_Temp%\file_checksum,,Hide
+  RunWait, %comspec% /c 7z x -y -o"%cacheDir%\%name%\%version%" "%cacheName%.zip",,Hide
+  RunWait, %comspec% /c checksum -t sha256 -f "%cacheName%.exe" > %A_Temp%\file_checksum,,Hide
   Loop, Read, %A_Temp%\file_checksum
   {
     if A_LoopReadLine
       checksumPackage = %A_LoopReadLine%
   }
   FileDelete, %A_Temp%\file_checksum
-  FileDelete, *.txt
-  FileDelete, *.exe
-  SetWorkingDir, %A_ScriptDir%\..\..
+  FileDelete, %cacheDir%\%name%\%version%\*.txt
+  FileDelete, %cacheDir%\%name%\%version%\*.exe
 
   ; Adding extra zip checksum
-  SetWorkingDir, %cacheDir%\%name%\%version%\
-  RunWait, %comspec% /c checksum -t sha256 -f "%zipName%.zip" > %A_Temp%\file_checksum,,Hide
+  RunWait, %comspec% /c checksum -t sha256 -f "%cacheName%.zip" > %A_Temp%\file_checksum,,Hide
   Loop, Read, %A_Temp%\file_checksum
   {
     if A_LoopReadLine
       checksumZip = %A_LoopReadLine%
   }
 
-  SetWorkingDir, %A_ScriptDir%\..\..
   ; Copy dir
   IfExist, %A_WorkingDir%\unpacked\%name%\%version%
     FileRemoveDir, %A_WorkingDir%\unpacked\%name%\%version%, 1
