@@ -1,5 +1,11 @@
 #Include %A_ScriptDir%\functions.ahk
 
+; Ensure to be in the right relative directory
+IfExist, %A_ScriptDir%\homebank.ahk
+{
+  SetWorkingDir, %A_WorkingDir%\..\..
+}
+
 ; ### Homebank package
 
 ; Download file
@@ -23,7 +29,8 @@ url = http://homebank.free.fr/public/HomeBank-%version%-setup.exe
 ; MsgBox, %name%`n%version%`n%url%
 
 ; Update package
-IfNotExist, %A_WorkingDir%\..\..\packed\%name%\%name%.%version%.nupkg 
+IfNotExist, %A_WorkingDir%\packed\%name%\%name%.%version%.nupkg 
 {  
+  TrayTip, Package update, %name% -> %version%, 5, 1
   updatePackage(name, version, url)
 }

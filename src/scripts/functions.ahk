@@ -1,9 +1,6 @@
 ; ## Functions ##
 updatePackage(name, version, url, url64 = "")
 {
-  SetWorkingDir, %A_ScriptDir%\..\..
-  TrayTip, Package update, %name% -> %version%, 5, 1
-
   ; Generate checksum from url for 32 bits and 64bits
   cacheDir = C:\cache
   SplitPath, url, fileName

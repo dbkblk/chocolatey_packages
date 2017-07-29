@@ -1,5 +1,11 @@
 #Include %A_ScriptDir%\functions.ahk
 
+; Ensure to be in the right relative directory
+IfExist, %A_ScriptDir%\microsoft-r-open.ahk
+{
+  SetWorkingDir, %A_WorkingDir%\..\..
+}
+
 ; ### Microsoft R Open package
 
 ; Download file
@@ -19,7 +25,8 @@ url = https://mran.microsoft.com/install/mro/%version%/microsoft-r-open-%version
 ; MsgBox, %name%`n%version%`n%url%
 
 ; Update package
-IfNotExist, %A_WorkingDir%\..\..\packed\%name%\%name%.%version%.nupkg 
+IfNotExist, %A_WorkingDir%\packed\%name%\%name%.%version%.nupkg 
 {
+  TrayTip, Package update, %name% -> %version%, 5, 1
   updatePackage(name, version, url)
 }
