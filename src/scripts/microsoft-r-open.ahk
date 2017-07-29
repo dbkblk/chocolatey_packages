@@ -16,10 +16,10 @@ version = %version1%
 url = https://mran.microsoft.com/install/mro/%version%/microsoft-r-open-%version%.exe
 
 ; Debug
-MsgBox, %name%`n%version%`n%url%
+; MsgBox, %name%`n%version%`n%url%
 
 ; Update package
-IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
+IfNotExist, %A_WorkingDir%\..\..\packed\%name%\%name%.%version%.nupkg 
 {
   updatePackage(name, version, url)
 }

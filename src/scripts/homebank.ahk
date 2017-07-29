@@ -23,7 +23,7 @@ url = http://homebank.free.fr/public/HomeBank-%version%-setup.exe
 ; MsgBox, %name%`n%version%`n%url%
 
 ; Update package
-IfNotExist, %A_ScriptDir%\packed\%name%\%name%.%version%.nupkg 
+IfNotExist, %A_WorkingDir%\..\..\packed\%name%\%name%.%version%.nupkg 
 {  
   updatePackage(name, version, url)
 }
