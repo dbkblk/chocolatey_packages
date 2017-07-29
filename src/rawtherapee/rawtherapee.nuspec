@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>rawtherapee</id>
+    <title>RawTherapee</title>
+    <version>{{PackageVersion}}</version>
+    <authors>RawTherapee Development Team</authors>
+    <owners>Hadrien Dussuel</owners>
+    <summary>RawTherapee is a cross-platform raw image processing program.</summary>
+    <description>RawTherapee is a cross-platform raw image processing program. It was originally written by Gábor Horváth of Budapest, Hungary, before being re-licensed as free and open-source software in January 2010. It is written in C++, using a GTK+ front-end and a patched version of dcraw for reading raw files. It is notable for the advanced control it gives the user over the demosaicing and developing process. The name used to stand for "The Experimental Raw Photo Editor"; however that acronym has been dropped, and RawTherapee is now a full name in itself.
+RawTherapee comprises a subset of image editing operations specifically aimed at non-destructive raw photo post-production and is primarily focused on improving a photographer's workflow by facilitating the handling of large numbers of images.</description>
+    <projectUrl>http://rawtherapee.com/</projectUrl>
+    <tags>raw photo</tags>
+    <copyright>© RawTherapee Development Team</copyright>
+    <licenseUrl>http://www.gnu.org/copyleft/gpl.html</licenseUrl>
+    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/rawtherapee</packageSourceUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://ubuntuhandbook.org/wp-content/uploads/2014/10/rawtherapee_logo_icon.png</iconUrl>
+    <docsUrl>http://rawtherapee.com/blog/documentation</docsUrl>
+    <bugTrackerUrl>https://github.com/Beep6581/RawTherapee/issues</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/Beep6581/RawTherapee</projectSourceUrl>
+    <releaseNotes>http://rawtherapee.com/blog/</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

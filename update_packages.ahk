@@ -8,3 +8,5 @@ SetWorkingDir, %A_ScriptDir%\src\scripts
 RunWait, homebank.ahk
 
 RunWait, microsoft-r-open.ahk
+
+RunWait, rawtherapee.ahk
