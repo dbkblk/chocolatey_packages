@@ -1,7 +1,7 @@
 #Include %A_ScriptDir%\functions.ahk
 
 ; Ensure to be in the right relative directory
-IfExist, %A_ScriptDir%\terminus.ahk
+IfExist, %A_WorkingDir%\terminus.ahk
 {
   SetWorkingDir, %A_WorkingDir%\..\..
 }

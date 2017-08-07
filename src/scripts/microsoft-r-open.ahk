@@ -1,7 +1,7 @@
 #Include %A_ScriptDir%\functions.ahk
 
 ; Ensure to be in the right relative directory
-IfExist, %A_ScriptDir%\microsoft-r-open.ahk
+IfExist, %A_WorkingDir%\microsoft-r-open.ahk
 {
   SetWorkingDir, %A_WorkingDir%\..\..
 }

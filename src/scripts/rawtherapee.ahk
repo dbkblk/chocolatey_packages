@@ -1,5 +1,5 @@
 ; Ensure to be in the right relative directory
-IfExist, %A_ScriptDir%\rawtherapee.ahk
+IfExist, %A_WorkingDir%\rawtherapee.ahk
 {
   SetWorkingDir, %A_WorkingDir%\..\..
 }
