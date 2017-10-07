@@ -19,6 +19,12 @@ version = %version1%
 zipName = RawTherapee_%version%_WinVista_64
 url = http://rawtherapee.com/releases_head/windows/RawTherapee_%version%_WinVista_64.zip
 
+; Exit script if version is null
+If !version
+{
+  ExitApp, 1
+}
+
 ; Debug
 ; MsgBox, %name%`n%version%`n%url%
 ; FileDelete, %A_ScriptDir%\..\..\packed\rawtherapee\rawtherapee.5.2.nupkg
@@ -49,6 +55,7 @@ IfNotExist, %A_WorkingDir%\packed\%name%\%name%.%version%.nupkg
   FileDelete, %A_Temp%\file_checksum
   FileDelete, %cacheDir%\%name%\%version%\*.txt
   FileDelete, %cacheDir%\%name%\%version%\*.exe
+  FileDelete, %cacheDir%\%name%\%version%\*.asc
 
   ; Adding extra zip checksum
   RunWait, %comspec% /c checksum -t sha256 -f "%cacheName%.zip" > %A_Temp%\file_checksum,,Hide
