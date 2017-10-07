@@ -14,12 +14,19 @@ FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 
 ; Parse version
-RegExMatch(html, "terminus\/releases\/download\/v[\w\.\-]*\/Terminus.Setup.([\w\.\-]*).exe", version)
+RegExMatch(html, "terminus\/releases\/download\/v[\w\.\-]*\/terminus-Setup-([\w\.\-]*).exe", version)
+; https://github.com/Eugeny/terminus/releases/download/v1.0.0-alpha.33/terminus-Setup-1.0.0-alpha.33.exe
 
 ; Gather informations
 name = terminus
 version := version1
-url = https://github.com/Eugeny/terminus/releases/download/v%version%/Terminus.Setup.%version%.exe
+url = https://github.com/Eugeny/terminus/releases/download/v%version%/terminus-Setup-%version%.exe
+
+; Exit script if version is null
+If !version
+{
+  ExitApp, 1
+}
 
 ; Fix version numbering for Chocolatey
 StringReplace, version, version, alpha., alpha
