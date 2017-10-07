@@ -25,6 +25,12 @@ name = homebank
 version := SubStr(html, startPos + startLen + 1, stopPos - (startPos + startLen))
 url = http://homebank.free.fr/public/HomeBank-%version%-setup.exe
 
+; Exit script if version is null
+If !version
+{
+  ExitApp, 1
+}
+
 ; Debug
 ; MsgBox, %name%`n%version%`n%url%
 

@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>homebank</id>
     <title>HomeBank</title>
-    <version>5.0.9</version>
+    <version></version>
     <authors>Maxime Doyen (and contributors)</authors>
     <owners>Hadrien Dussuel</owners>
     <summary>Free personal finance, Free money management, Free personal accounting.</summary>
@@ -18,7 +18,7 @@ If you are looking for a completely free and easy application to manage your per
     <licenseUrl>http://www.gnu.org/copyleft/gpl.html</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/homebank</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>http://bazaar.launchpad.net/~mdoyen/homebank/main/download/homebank%40free.fr-20150208132447-1y2cxqjg4y001qes/hicolor_apps_256x256-20150208132434-08qwscpys1sd0xho-14/hicolor_apps_256x256_homebank.png</iconUrl>
+    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/homebank.png</iconUrl>
     <docsUrl>http://homebank.free.fr/help/</docsUrl>
     <bugTrackerUrl>https://bugs.launchpad.net/homebank</bugTrackerUrl>
     <projectSourceUrl>https://code.launchpad.net/homebank</projectSourceUrl>
