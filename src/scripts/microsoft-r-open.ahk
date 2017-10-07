@@ -21,6 +21,12 @@ name = microsoft-r-open
 version = %version1%
 url = https://mran.microsoft.com/install/mro/%version%/microsoft-r-open-%version%.exe
 
+; Exit script if version is null
+If !version
+{
+  ExitApp, 1
+}
+
 ; Debug
 ; MsgBox, %name%`n%version%`n%url%
 

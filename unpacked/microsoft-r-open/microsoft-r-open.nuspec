@@ -10,14 +10,14 @@
     <owners>Hadrien Dussuel</owners>
     <summary>World’s most powerful programming language for statistical computing, machine learning and graphics as well as a thriving global community of users, developers and contributors.</summary>
     <description>Microsoft R Open is the enhanced distribution of open source R from Microsoft Corporation. Enhancements include multi-core processing, a fixed CRAN repository date, and reproducible R with the checkpoint package. It includes Intel Math Kernel Library (Intel MKL) as well.</description>
-    <projectUrl>https://mran.revolutionanalytics.com</projectUrl>
+    <projectUrl>https://mran.microsoft.com/</projectUrl>
     <tags>admin r computation mathematics modelling</tags>
     <copyright>© Microsoft</copyright>
-    <licenseUrl>https://mran.revolutionanalytics.com/faq/#mro-eula</licenseUrl>
+    <licenseUrl>https://mran.microsoft.com//faq/#mro-eula</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/microsoft-r-open</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://mran.revolutionanalytics.com/assets/img/ClarkHead.d73204d7.png</iconUrl>
-    <docsUrl>https://mran.revolutionanalytics.com/documents/getting-started/</docsUrl>
+    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/microsoft-r-open.png</iconUrl>
+    <docsUrl>https://mran.microsoft.com//documents/getting-started/</docsUrl>
     <bugTrackerUrl>https://github.com/RevolutionAnalytics/RRO/issues</bugTrackerUrl>
     <projectSourceUrl>https://github.com/RevolutionAnalytics/RRO</projectSourceUrl>
     <releaseNotes>https://github.com/RevolutionAnalytics/RRO/releases/tag/MRO-3.3.0</releaseNotes>
