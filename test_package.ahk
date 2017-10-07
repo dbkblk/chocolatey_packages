@@ -17,7 +17,7 @@ IfExist, %A_ScriptDir%\packed\%1%
     
     ; Try to install the package with command line
     MsgBox, This will install %last_name%.
-    Run  *RunAs %comspec% /k cinst -y %A_WorkingDir%\%last_name% -dv -s .
+    Run  *RunAs %comspec% /k cinst -y "%A_WorkingDir%\%last_name%" -dv -s .
 } else {
     MsgBox, The package doesn't exist.
 }
