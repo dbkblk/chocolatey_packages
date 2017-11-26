@@ -1,5 +1,4 @@
 #Include %A_ScriptDir%\functions.ahk
-#Include <JSON>
 
 ; Ensure to be in the right relative directory
 IfExist, %A_WorkingDir%\microsoft-r-open.ahk

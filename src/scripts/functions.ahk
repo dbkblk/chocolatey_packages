@@ -76,4 +76,8 @@ updatePackage(name, version, url, url64 = "")
   FileDelete, %A_WorkingDir%\packed\%name%\%name%.%version%.nupkg
   FileMove, %A_WorkingDir%\%name%.%version%.nupkg, %A_WorkingDir%\packed\%name%\%name%.%version%.nupkg
   Sleep, 5000
+
+  ; Create a file on the desktop
+  filename = %name% - %version%
+  FileAppend, Chocolatey: %name% was updated to %version%, %A_Desktop%\%filename%
 }
