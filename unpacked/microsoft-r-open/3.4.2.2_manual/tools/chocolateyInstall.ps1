@@ -1,7 +1,7 @@
 $packageName = 'microsoft-r-open'
 $installerType = 'EXE'
 $url = 'https://mran.blob.core.windows.net/install/mro/3.4.2/microsoft-r-open-3.4.2.exe'
-$checksum = '2B2421D175B1C129EF6CE72DA2A3D9A792FE31464090877E7059CCA1356B4CD7'
+$checksum = '6EE89D8642D3A153E5C4295E5028B6E70F657B1768B10E23CB5D7DA8A9C7552D'
 $checkumType = 'sha256'
 $silentArgs = '/quiet'
 $validExitCodes = @(0, 1603, 1626)

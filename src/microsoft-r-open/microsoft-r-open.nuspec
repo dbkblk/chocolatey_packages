@@ -20,7 +20,7 @@
     <docsUrl>https://mran.microsoft.com//documents/getting-started/</docsUrl>
     <bugTrackerUrl>https://github.com/RevolutionAnalytics/RRO/issues</bugTrackerUrl>
     <projectSourceUrl>https://github.com/RevolutionAnalytics/RRO</projectSourceUrl>
-    <releaseNotes>https://github.com/RevolutionAnalytics/RRO/releases/tag/MRO-3.3.0</releaseNotes>
+    <releaseNotes>https://github.com/Microsoft/microsoft-r-open/releases/latest</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
