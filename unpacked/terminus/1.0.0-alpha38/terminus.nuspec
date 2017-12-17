@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>terminus</id>
+    <title>Terminus</title>
+    <version>1.0.0-alpha38</version>
+    <authors>Eugene Pankov (and contributors)</authors>
+    <owners>Hadrien Dussuel</owners>
+    <summary>Terminus is a web technology based terminal heavily inspired by Hyper.</summary>
+    <description>Terminus is a web technology based terminal heavily inspired by Hyper. It is, however, designed for people who need to get things done.
+
+Runs on Windows, macOS and Linux
+Theming and color schemes
+Configurable hotkey schemes
+GNU Screen style hotkeys available by default
+Full Unicode support including double-width characters
+Doesn't choke on fast-flowing outputs
+Tab persistence on macOS and Linux
+Proper shell-like experience on Windows including tab completion (thanks, Clink!)
+CMD, PowerShell, Cygwin, Git-Bash and Bash on Windows support
+Default Linux style hotkeys for copy (Ctrl+Shift+C) and paste (Ctrl+Shift+V)
+</description>
+    <projectUrl>https://eugeny.github.io/terminus/</projectUrl>
+    <tags>terminal console windows</tags>
+    <copyright>© Eugene Pankov</copyright>
+    <licenseUrl>https://github.com/Eugeny/terminus/blob/master/LICENSE</licenseUrl>
+    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/terminus</packageSourceUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/terminus.png</iconUrl>
+    <docsUrl>https://github.com/Eugeny/terminus/wiki</docsUrl>
+    <bugTrackerUrl>https://github.com/Eugeny/terminus/issues</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/Eugeny/terminus</projectSourceUrl>
+    <releaseNotes>https://github.com/Eugeny/terminus/releases</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
