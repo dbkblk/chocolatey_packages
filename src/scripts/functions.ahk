@@ -77,7 +77,13 @@ updatePackage(name, version, url, url64 = "")
   FileMove, %A_WorkingDir%\%name%.%version%.nupkg, %A_WorkingDir%\packed\%name%\%name%.%version%.nupkg
   Sleep, 5000
 
-  ; Create a file on the desktop
-  filename = %name% - %version%
-  FileAppend, Chocolatey: %name% was updated to %version%, %A_Desktop%\%filename%
+  ; If the script to send email exists, send an email, else, create a file on the desktop
+  script_mail = D:\docs\conf\scripts\src\envoi_mail.ahk
+  IfExist, %script_mail%
+  {
+    Run, %script_mail% "Package update: %name% %version%" "The Chocolatey package %name% was updated to %version%"
+  } else {
+    filename = %name% - %version%
+    FileAppend, Chocolatey: %name% was updated to %version%, %A_Desktop%\%filename%
+  }
 }
