@@ -81,7 +81,7 @@ updatePackage(name, version, url, url64 = "")
   script_mail = D:\docs\conf\scripts\src\envoi_mail.ahk
   IfExist, %script_mail%
   {
-    Run, %script_mail% "Package update: %name% %version%" "The Chocolatey package %name% was updated to %version%"
+    Run, %script_mail% "Package update: %name% %version%" "The Chocolatey package %name% was updated to %version%."
   } else {
     filename = %name% - %version%
     FileAppend, Chocolatey: %name% was updated to %version%, %A_Desktop%\%filename%
