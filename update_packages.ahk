@@ -14,3 +14,5 @@ RunWait, %scripts_dir%\microsoft-r-open.ahk
 RunWait, %scripts_dir%\rawtherapee.ahk
 
 RunWait, %scripts_dir%\terminus.ahk
+
+RunWait, %scripts_dir%\xmind.ahk
