@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>xmind</id>
+    <title>XMind</title>
+    <version>3.7.5</version>
+    <authors>XMind Ltd</authors>
+    <owners>Jivko Kolev, Hadrien Dussuel</owners>
+    <summary>XMind - Powerful Mind Mapping Software</summary>
+    <description>XMind is an open source project, which means it's free to download and free to use forever. XMind Plus/Pro with more professional features are also available.
+
+- Mind Toolbox - Use icons, labels, lines, notes, boundaries to draw mind maps in a professional way.
+- Fishbone - Fishbone diagrams are effective to show the causes of a specific event.
+- Gantt Chart - A real project management tool must have a real Gantt view.
+- Import/Export - Import from other mindmap software. Export to images, PDFs, Word/PPTs.</description>
+    <projectUrl>http://www.xmind.net/</projectUrl>
+    <tags>admin xmind mind map</tags>
+    <copyright>© XMind Ltd</copyright>
+    <licenseUrl>https://www.xmind.net/license/</licenseUrl>
+    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/xmind</packageSourceUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/xmind.png</iconUrl>
+    <docsUrl>https://www.xmind.net/faq/</docsUrl>
+    <bugTrackerUrl>https://github.com/xmindltd/xmind/issues</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/xmindltd/xmind</projectSourceUrl>
+    <releaseNotes>https://github.com/xmindltd/xmind/releases</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
