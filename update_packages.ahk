@@ -9,6 +9,8 @@ scripts_dir = %A_ScriptDir%\src\scripts
 
 RunWait, %scripts_dir%\homebank.ahk
 
+RunWait, %scripts_dir%\darktable.ahk
+
 RunWait, %scripts_dir%\microsoft-r-open.ahk
 
 RunWait, %scripts_dir%\rawtherapee.ahk
