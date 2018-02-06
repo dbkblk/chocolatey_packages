@@ -7,7 +7,7 @@ environment:
     secure: TihxnYdIwtxnhS568XO7PECa6ETPBcTk2fUSgO8wq60c75Io9xPXE3TtLCBf5D6h
 
 build_script:
-  - ps: cd .\pkg\xmind\pkg\ && choco pack && ls
+  - ps: build.bat
 
 deploy_script:
   - ps: >-
