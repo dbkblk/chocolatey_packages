@@ -2,7 +2,7 @@ language: csharp
 
 env:
   global:
-    - CHOCO=/usr/local/src/choco/build_output/chocolatey/choco.exe
+    - PKGCHOCO=/usr/local/src/choco/build_output/chocolatey/choco.exe
 
 mono:
 - 3.12.0
@@ -16,5 +16,5 @@ install:
 
 script:
 - cd ~/dbkblk/chocolatey_packages/pkg/xmind/pkg/
-- $CHOCO pack
+- $PKGCHOCO pack
 - echo "ok."
