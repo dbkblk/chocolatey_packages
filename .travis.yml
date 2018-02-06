@@ -13,6 +13,6 @@ install:
 
 script:
 - cd /home/travis/build/dbkblk/chocolatey_packages/pkg/xmind/pkg/
-- $PKGCHOCO pack --allow-unofficial
+- $PKGCHOCO pack --allow-unofficial xmind.nuspec
 - ls -a 
 - echo "ok."
