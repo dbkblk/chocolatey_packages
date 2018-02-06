@@ -13,5 +13,5 @@ install:
 
 script:
 - cd /home/travis/build/dbkblk/chocolatey_packages/pkg/xmind/pkg/
-- $PKGCHOCO pack
+- $PKGCHOCO pack --allow-unofficial
 - echo "ok."
