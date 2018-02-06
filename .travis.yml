@@ -1,5 +1,9 @@
 language: csharp
 
+env:
+  global:
+    - CHOCO=/usr/local/src/choco/build_output/chocolatey/choco.exe
+
 mono:
 - 3.12.0
 
@@ -9,10 +13,8 @@ install:
 - cd /usr/local/src/choco
 - sudo chmod +x build.sh
 - sudo ./build.sh
-- sudo apt-get install tree
-- tree
-- sudo cp choco /usr/local/bin/choco
-- sudo chmod +x /usr/local/bin/choco
 
 script:
+- cd ~/dbkblk/chocolatey_packages/pkg/xmind/pkg/
+- $CHOCO pack
 - echo "ok."
