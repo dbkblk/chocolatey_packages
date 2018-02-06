@@ -9,6 +9,8 @@ install:
 - cd /usr/local/src/choco
 - sudo chmod +x build.sh
 - sudo ./build.sh
+- sudo apt-get install tree
+- tree
 - sudo cp choco /usr/local/bin/choco
 - sudo chmod +x /usr/local/bin/choco
 
