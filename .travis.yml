@@ -9,7 +9,7 @@ mono:
 
 install:
 - ls -a
-- sudo ./deploy_chocolatey.sh
+- sudo sh deploy_chocolatey.sh
 
 script:
 - cd pkg/xmind/pkg/
