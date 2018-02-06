@@ -16,4 +16,4 @@ deploy_script:
       }
 artifacts:
   - path: '**\*.nupkg'
-name: Package
+  - name: Package
