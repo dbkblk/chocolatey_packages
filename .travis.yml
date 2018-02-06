@@ -4,8 +4,6 @@ mono:
 - 3.12.0
 
 install:
-- apt-get install wget unzip git mono-devel
-- sudo mozroots --import --sync
 - sudo cd /usr/local/src
 - sudo git clone --depth=10 --branch=master https://github.com/chocolatey/choco.git
 - sudo cd /usr/local/src/choco
