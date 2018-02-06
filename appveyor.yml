@@ -1,4 +1,7 @@
 version: 3.7.5.{build}
+branches:
+  only:
+    - test_ci
 environment:
   TOKEN:
     secure: TihxnYdIwtxnhS568XO7PECa6ETPBcTk2fUSgO8wq60c75Io9xPXE3TtLCBf5D6h
