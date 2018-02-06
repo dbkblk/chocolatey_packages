@@ -10,8 +10,11 @@ mono:
 install:
 - ls -a
 - sudo sh deploy_chocolatey.sh
+- sudo apt install tree
 
 script:
+- cd /home/travis/build/dbkblk/chocolatey_packages/
+- tree
 - cd /home/travis/build/dbkblk/chocolatey_packages/pkg/xmind/pkg/
 - $PKGCHOCO pack --allow-unofficial xmind.nuspec
 - ls -a 
