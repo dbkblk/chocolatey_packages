@@ -4,7 +4,7 @@ environment:
     secure: TihxnYdIwtxnhS568XO7PECa6ETPBcTk2fUSgO8wq60c75Io9xPXE3TtLCBf5D6h
 
 build_script:
-  - ps: choco pack
+  - ps: cd .\pkg\xmind\pkg\ && choco pack && ls
 
 deploy_script:
   - ps: >-
@@ -12,7 +12,7 @@ deploy_script:
       if($env:APPVEYOR_REPO_BRANCH -eq 'master' -And $env:APPVEYOR_REPO_TAG -eq 'true') {
         $version = $env:APPVEYOR_BUILD_VERSION -replace('\.[^.\\/]+$') ;
         $version = $version -replace('-ce') ;
-        ECHO 'It works'
+        echo "It works."
       }
 artifacts:
   - path: '**\*.nupkg'
