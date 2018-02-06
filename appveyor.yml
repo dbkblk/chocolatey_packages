@@ -6,6 +6,9 @@ environment:
   TOKEN:
     secure: TihxnYdIwtxnhS568XO7PECa6ETPBcTk2fUSgO8wq60c75Io9xPXE3TtLCBf5D6h
 
+install:
+  - cinst autohotkey
+
 build_script:
   - cmd: build.bat
 
