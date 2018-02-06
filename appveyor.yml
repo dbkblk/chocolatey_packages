@@ -17,6 +17,3 @@ deploy_script:
         $version = $version -replace('-ce') ;
         echo "It works."
       }
-artifacts:
-  - path: '**\*.nupkg'
-  - name: Package
