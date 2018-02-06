@@ -1,0 +1,19 @@
+version: 3.7.5.{build}
+environment:
+  TOKEN:
+    secure: TihxnYdIwtxnhS568XO7PECa6ETPBcTk2fUSgO8wq60c75Io9xPXE3TtLCBf5D6h
+
+build_script:
+  - ps: choco pack
+
+deploy_script:
+  - ps: >-
+      Write-Host $env:APPVEYOR_REPO_TAG ;
+      if($env:APPVEYOR_REPO_BRANCH -eq 'master' -And $env:APPVEYOR_REPO_TAG -eq 'true') {
+        $version = $env:APPVEYOR_BUILD_VERSION -replace('\.[^.\\/]+$') ;
+        $version = $version -replace('-ce') ;
+        ECHO 'It works'
+      }
+artifacts:
+  - path: '**\*.nupkg'
+name: Package
