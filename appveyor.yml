@@ -1,4 +1,4 @@
-version: 3.7.5.{build}
+version: {build}
 branches:
   only:
     - test_ci
@@ -10,7 +10,7 @@ install:
   - cinst autohotkey
 
 build_script:
-  - cmd: >-
+  - ps: >-
       cd "C:\projects\chocolatey-packages"
       .\update_packages.ahk
 
