@@ -10,4 +10,4 @@ build_script:
   - ps: .\repack.ps1
 
 test_script:
-  - ps: test_installation.ps1
+  - ps: .\test_installation.ps1
