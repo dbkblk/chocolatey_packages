@@ -10,4 +10,4 @@ install:
   - cinst autohotkey
 
 build_script:
-  - ps: repack.ps1
+  - ps: .\repack.ps1
