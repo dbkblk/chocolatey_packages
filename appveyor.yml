@@ -10,13 +10,4 @@ install:
   - cinst autohotkey
 
 build_script:
-  - cmd: cd "C:\projects\chocolatey-packages" && .\update_packages.ahk
-
-deploy_script:
-  - ps: >-
-      Write-Host $env:APPVEYOR_REPO_TAG ;
-      if($env:APPVEYOR_REPO_BRANCH -eq 'master' -And $env:APPVEYOR_REPO_TAG -eq 'true') {
-        $version = $env:APPVEYOR_BUILD_VERSION -replace('\.[^.\\/]+$') ;
-        $version = $version -replace('-ce') ;
-        echo "It works."
-      }
+  - ps: cd "C:\projects\chocolatey-packages" && repack.ps1
