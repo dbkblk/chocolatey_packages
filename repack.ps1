@@ -1,4 +1,4 @@
-$commit = (Get-Item env:$APPVEYOR_PULL_REQUEST_TITLE).Value
+$commit = (Get-Item env:APPVEYOR_PULL_REQUEST_TITLE).Value
 Write-Host $commit
 # $pkg = 
 # $regex = '<version>(.*)<\/version>'
