@@ -9,5 +9,5 @@ environment:
 build_script:
   - ps: .\repack.ps1
 
-test:
+test_script:
   - ps: test_installation.ps1
