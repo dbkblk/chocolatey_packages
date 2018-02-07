@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>darktable</id>
     <title>Darktable</title>
-    <version>2.4.1</version>
+    <version>{{PackageVersion}}</version>
     <authors>Darktable team.</authors>
     <owners>Hadrien Dussuel</owners>
     <summary>darktable is an open source photography workflow application and raw developer.</summary>
