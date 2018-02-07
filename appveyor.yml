@@ -3,8 +3,11 @@ branches:
   only:
     - test_ci
 environment:
-  TOKEN:
+  choco_api:
     secure: TihxnYdIwtxnhS568XO7PECa6ETPBcTk2fUSgO8wq60c75Io9xPXE3TtLCBf5D6h
 
 build_script:
   - ps: .\repack.ps1
+
+test:
+  - ps: test_installation.ps1
