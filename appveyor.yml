@@ -10,7 +10,7 @@ install:
   - cinst autohotkey
 
 build_script:
-  - cmd: build.bat
+  - cmd: autohotkey update_packages.ahk
 
 deploy_script:
   - ps: >-

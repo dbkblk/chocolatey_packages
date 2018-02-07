@@ -1,20 +1,61 @@
-Menu, Tray, Tip, PackageUpdater
+; This is the script which will be run automatically on Appveyor on each git commit.
+; The goal is to automatically build nupkg and push them. It allows to maintain packages from any platform.
 
-; This script will automatically update the packages. It needs "checksum" and "git" to work.
-; Note : To test package locally, use "cinst -y packageName -dv -s ."
+; Loop packages
+Loop, Files, %A_ScriptDir%/pkg/*, D
+{
+    name = %A_LoopFileName%
 
-SetWorkingDir, %A_ScriptDir%
+    ;debug
+    ;MsgBox, pkg_test : %name%
 
-scripts_dir = %A_ScriptDir%\src\scripts
+    ; Get local version
+    FileRead, f_tmp, %A_ScriptDir%\pkg\%name%\%name%.nuspec
+    RegExMatch(f_tmp, "<version>(.*)<\/version>", version)
+    version_local = %version1%
+    ;MsgBox, %name% (local) : %version_local%
 
-RunWait, %scripts_dir%\homebank.ahk
+    ; Get distant version
+    ; RunWait, %comspec% /c choco info -r --pre %name% > tmp,,Hide
+    ; FileReadLine, version_distant, tmp, 1
+    ; FileDelete, tmp
+    ; StringSplit, version_distant, version_distant, |
+    ; version_distant = %version_distant2%
 
-RunWait, %scripts_dir%\darktable.ahk
+    ;debug
+    ;MsgBox, %name% (distant) : %version_distant%
 
-RunWait, %scripts_dir%\microsoft-r-open.ahk
+    ; Break if one of the version is unreachable
+    ; If !version_local
+    ; {
+    ;     ExitApp, 1
+    ; }
+    ;     If !version_distant
+    ; {
+    ;     ExitApp, 1
+    ; }
 
-RunWait, %scripts_dir%\rawtherapee.ahk
+    ; Test if distant version exist
+    RunWait, %comspec% /c choco info -r %name% --version=%version_local% > tmp,,Hide
+    FileReadLine, version_distant, tmp, 1
+    FileDelete, tmp
+    StringSplit, version_distant, version_distant, |
+    version_distant = %version_distant2%
+    if !version_distant
+    {
+        ; Break because it could lend to weird errors if the servers are offline
+        ExitApp, 1
+    }
 
-RunWait, %scripts_dir%\terminus.ahk
+    ;debug
+    ;MsgBox, %name% %version_distant% %version_local%
 
-RunWait, %scripts_dir%\xmind.ahk
+    ; If different, build the package
+    IfEqual, version_distant, %version_local%
+    {
+        SetWorkingDir, %A_ScriptDir%\pkg\%name%\
+        RunWait, %comspec% /c choco pack,,Hide
+        ;MsgBox, %name% %version_distant% %version_local%
+        SetWorkingDir, %A_ScriptDir%
+    } 
+}
