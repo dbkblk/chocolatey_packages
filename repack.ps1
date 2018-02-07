@@ -18,7 +18,7 @@ if( [string]::IsNullOrEmpty($v_distant) )
 
 cd $name
 (choco pack)
-cd ..
+cd ..\..
 
 # $pkg = 
 # $regex = '<version>(.*)<\/version>'
