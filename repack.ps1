@@ -5,6 +5,7 @@ Write-Host "Processing $($name) v$($version)"
 
 cd .\pkg
 
+$regex = '<version>(.*)<\/version>'
 $v_local = Select-String -Path ".\$name\$name.nuspec" -Pattern $regex -AllMatches | % {$_.matches.groups[1]} | % {$_.Value}
 $v_distant = (choco info -r --version=$v_local $name).split("|")[1]
 
