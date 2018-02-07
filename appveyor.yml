@@ -8,6 +8,7 @@ environment:
 
 install:
   - cinst autohotkey
+  - (Get-Item -Path ".\" -Verbose).FullName
 
 build_script:
-  - ps: cd "C:\projects\chocolatey-packages" && repack.ps1
+  - ps: repack.ps1
