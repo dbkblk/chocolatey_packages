@@ -8,7 +8,6 @@ environment:
 
 install:
   - cinst autohotkey
-  - (Get-Item -Path ".\" -Verbose).FullName
 
 build_script:
   - ps: repack.ps1
