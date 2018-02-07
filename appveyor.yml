@@ -3,11 +3,14 @@ branches:
   only:
     - test_ci
 environment:
-  choco_api:
-    secure: TihxnYdIwtxnhS568XO7PECa6ETPBcTk2fUSgO8wq60c75Io9xPXE3TtLCBf5D6h
+  CHOCO_API:
+    secure: 39O7NZuAa8JRWGMtXGEPkNzLTqgqYL7Ssq5Blms1J6oEaXJ3Yn+zpw1Y1S8KjH9t
 
 build_script:
   - ps: .\repack.ps1
 
 test_script:
   - ps: .\test_installation.ps1
+
+deploy_script:
+  - ps: .\deploy.ps1
