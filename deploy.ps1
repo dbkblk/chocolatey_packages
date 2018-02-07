@@ -7,4 +7,12 @@ $filename = $Dir | where {$_.extension -eq ".nupkg"} | % {$_.Name}
 # Register API key and deploy
 $api_key = (Get-ChildItem env:CHOCO_API).Value
 (choco apikey --key $api_key --source https://push.chocolatey.org/)
+
+Write-Host "#### Deploying package ####"
 (choco push -v .\pkg\$name\$filename)
+if ( $LASTEXITCODE -ne 0 )
+{
+    Write-Error "An error has occured during the deployment."
+    Exit(1)
+}
+Exit(0)
