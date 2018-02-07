@@ -4,7 +4,7 @@ $commit = (Get-ChildItem env:APPVEYOR_REPO_COMMIT_MESSAGE).Value
 # Do not build if the commit is for configuration
 if ( $commit.Contains('config:') )
 {
-    Write-Error "This is a commit for a new package. Aborting."
+    Write-Error "This commit is a configuration update. No need to rebuild."
     Exit(1)
 }
 
