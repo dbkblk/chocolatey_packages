@@ -10,7 +10,9 @@ install:
   - cinst autohotkey
 
 build_script:
-  - cmd: cd "C:\projects\chocolatey-packages" && .\update_packages.ahk
+  - cmd: >-
+      cd "C:\projects\chocolatey-packages"
+      .\update_packages.ahk
 
 deploy_script:
   - ps: >-
