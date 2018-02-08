@@ -48,6 +48,9 @@ if (-Not($url)) {
 Invoke-WebRequest -Uri $url -Outfile "tmp"
 $checksum = Get-FileHash tmp -Algorithm SHA256 | % {$_.Hash}
 
+# Writing debug messages
+Write-Host "[DEBUG] pkg: $($name), version: $($version), url: $($url), checksum: $($checksum)"
+
 # Loading src files
 $nuspec = Get-Content ".\$name.nuspec"
 $install = Get-Content ".\tools\chocolateyinstall.ps1"
