@@ -1,12 +1,12 @@
 # Get informations about the package to test
 $commit = (Get-ChildItem env:APPVEYOR_REPO_COMMIT_MESSAGE).Value
 $name = $commit.split('|')[0]
-$Dir = Get-ChildItem .\pkg\$name\ -recurse
+$Dir = Get-ChildItem .\src\$name\ -recurse
 $filename = $Dir | where {$_.extension -eq ".nupkg"} | % {$_.Name}
 
 # Installation test
 Write-Host "#### Testing installation ####"
-(choco install -v .\pkg\$name\$filename)
+(choco install -v .\src\$name\$filename)
 if ( $LASTEXITCODE -ne 0 )
 {
     Write-Error "An error has occured during the installation."
