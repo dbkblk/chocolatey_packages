@@ -75,6 +75,11 @@ $install = $install -replace "{{url}}", $url
 $nuspec | Set-Content ".\$name.nuspec"
 $install | Set-Content ".\tools\chocolateyinstall.ps1"
 
+# Debug
+Write-Host "[DEBUG] #### FILES CONTENT ####"
+$nuspec
+$install
+
 # Pack it
 (choco pack)
 
