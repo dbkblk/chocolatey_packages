@@ -12,7 +12,7 @@ $name = $commit.split('|')[0]
 $v_commit = $commit.split('|')[1]
 Write-Host "#### Processing $($name) v$($v_commit) ####"
 
-cd .\pkg\$name\
+cd .\src\$name\
 
 # Source the local informations (url and version)
 . .\latest.ps1
