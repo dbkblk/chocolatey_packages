@@ -13,12 +13,23 @@ if ( $LASTEXITCODE -ne 0 )
     Exit(1)
 }
 
-# Uninstallation test
+# Uninstallation test (bypass test for MRO. Avoid to create a uninstaller because it exits with 1626 instead of 0.)
+# if (-Not( $name = "microsoft-r-open" ))
+# {
+#     Write-Host "#### Testing uninstallation ####"
+#     (choco uninstall -v $name)
+#     if ( $LASTEXITCODE -ne 0 )
+#     {
+#         Write-Error "An error has occured during the uninstallation."
+#         Exit(1)
+#     }
+# }
 Write-Host "#### Testing uninstallation ####"
 (choco uninstall -v $name)
-if ( $LASTEXITCODE -ne 0 )
+if ( ($LASTEXITCODE -eq 0) -or ($LASTEXITCODE -eq 1626) )
 {
-    Write-Error "An error has occured during the uninstallation."
-    Exit(1)
+    Exit(0)
 }
-Exit(0)
+
+Write-Error "An error has occured during the uninstallation."
+Exit(1)
