@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>homebank</id>
     <title>HomeBank</title>
-    <version>{{PackageVersion}}</version>
+    <version>{{version}}</version>
     <authors>Maxime Doyen (and contributors)</authors>
     <owners>Hadrien Dussuel</owners>
     <summary>Free personal finance, Free money management, Free personal accounting.</summary>
