@@ -9,15 +9,17 @@ if ( $commit.Contains('config:') )
 }
 
 $name = $commit.split('|')[0]
-$version = $commit.split('|')[1]
-Write-Host "#### Processing $($name) v$($version) ####"
+$v_commit = $commit.split('|')[1]
+Write-Host "#### Processing $($name) v$($v_commit) ####"
 
-cd .\pkg
+cd .\pkg\$name\
+
+# Source the local informations (url and version)
+. .\latest.ps1
 
 # Check local and distant version
 $regex = '<version>(.*)<\/version>'
-$v_local = Select-String -Path ".\$name\$name.nuspec" -Pattern $regex -AllMatches | % {$_.matches.groups[1]} | % {$_.Value}
-$v_distant = (choco info -r --version=$v_local $name).split("|")[1]
+$v_distant = (choco info -r --version=$version $name).split("|")[1]
 
 # Avoid to build package if there is a problem.
 if( [string]::IsNullOrEmpty($v_distant) )
@@ -26,9 +28,43 @@ if( [string]::IsNullOrEmpty($v_distant) )
     Exit(1)
 }
 
-# Package
-cd $name
+
+# Prepare the package and build
+# Modifying the sources files (in a VM)
+if (-Not($name)) { 
+    Write-Error "Prepare-Package: Name undefined."
+    Exit(1)
+}
+if (-Not($version)) { 
+    Write-Error "Prepare-Package: Version undefined."
+    Exit(1)
+}
+if (-Not($url)) { 
+    Write-Error "Prepare-Package: URL undefined."
+    Exit(1)
+}
+
+# Calculate checksums
+Invoke-WebRequest -Uri $url -Outfile "tmp"
+$checksum = Get-FileHash tmp -Algorithm SHA256 | % {$_.Hash}
+
+# Loading src files
+$nuspec = Get-Content ".\$name.nuspec"
+$install = Get-Content ".\tools\chocolateyinstall.ps1"
+
+# Replacing values
+$nuspec = $nuspec -replace "{{version}}", $version
+$install = $install -replace "{{checksum}}", $checksum
+$install = $install -replace "{{url}}", $url
+
+# Saving file
+$nuspec | Set-Content ".\$name.nuspec"
+$install | Set-Content ".\tools\chocolateyinstall.ps1"
+
+# Pack it
 (choco pack)
+
+# Return to base directory
 cd ..\..
 
 Exit(0)

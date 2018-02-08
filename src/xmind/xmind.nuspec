@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>xmind</id>
     <title>XMind</title>
-    <version>{{PackageVersion}}</version>
+    <version>{{version}}</version>
     <authors>XMind Ltd</authors>
     <owners>Jivko Kolev, Hadrien Dussuel</owners>
     <summary>XMind - Powerful Mind Mapping Software</summary>
