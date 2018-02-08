@@ -1,7 +1,7 @@
 ﻿$packageName = 'terminus'
 $installerType = 'EXE'
-$url = '{{DownloadUrl}}'
-$checksum = '{{Checksum}}'
+$url = '{{url}}'
+$checksum = '{{checksum}}'
 $checkumType = 'sha256'
 $silentArgs = '/silent'
 $validExitCodes = @(0)
