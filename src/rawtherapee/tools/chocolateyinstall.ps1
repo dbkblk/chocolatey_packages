@@ -1,8 +1,8 @@
 ﻿$packageName = 'rawtherapee'
 $installerType = 'EXE'
-$url64 = '{{DownloadUrl64}}'
-$checksumZip = '{{ChecksumZip}}'
-$checksum64 = '{{Checksum}}'
+$url64 = '{{url}}'
+$checksumZip = '{{checksum}}'
+$checksum64 = '{{checksumExe}}'
 $checkumType = 'sha256'
 $silentArgs = '/verysilent'
 $validExitCodes = @(0)

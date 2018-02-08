@@ -51,6 +51,16 @@ $checksum = Get-FileHash tmp -Algorithm SHA256 | % {$_.Hash}
 # Writing debug messages
 Write-Host "[DEBUG] pkg: $($name), version: $($version), url: $($url), checksum: $($checksum)"
 
+# Special cases checksums (ex: RawTherapee)
+if ( $name -eq "rawtherapee") 
+{
+    (7z x -y tmp)
+    $checksumExe = Get-FileHash "RawTherapee_$($version)_WinVista_64.exe" -Algorithm SHA256 | % {$_.Hash}
+    Write-Host "[DEBUG] Special package. checksumExe: $($checksumExe)."
+}
+
+
+
 # Loading src files
 $nuspec = Get-Content ".\$name.nuspec"
 $install = Get-Content ".\tools\chocolateyinstall.ps1"
@@ -58,6 +68,7 @@ $install = Get-Content ".\tools\chocolateyinstall.ps1"
 # Replacing values
 $nuspec = $nuspec -replace "{{version}}", $version
 $install = $install -replace "{{checksum}}", $checksum
+if ( $checksumExe ) { $install = $install -replace "{{checksumExe}}", $checksumExe }
 $install = $install -replace "{{url}}", $url
 
 # Saving file
