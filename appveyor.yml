@@ -1,7 +1,7 @@
 version: b{build}
 branches:
   only:
-    - test_ci
+    - master
 environment:
   CHOCO_API:
     secure: 39O7NZuAa8JRWGMtXGEPkNzLTqgqYL7Ssq5Blms1J6oEaXJ3Yn+zpw1Y1S8KjH9t
