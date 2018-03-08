@@ -19,7 +19,7 @@ cd .\src\$name\
 
 # Check local and distant version
 $regex = '<version>(.*)<\/version>'
-$v_distant = (choco info -r --pre --version=$version $name).split("|")[1]
+$v_distant = (choco info -r --version=$version $name).split("|")[1]
 
 # Avoid to build package if there is a problem.
 if( [string]::IsNullOrEmpty($v_distant) )
