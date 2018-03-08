@@ -160,6 +160,5 @@ RegExMatch(html, "/xmind\/downloads\/([\w\.\-]*).exe", url)
 url = https://www.xmind.net%url%
 
 ; Create script and clean variables
-debug()
 checkVersions()
 cleanVariables()
