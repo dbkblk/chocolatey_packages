@@ -24,7 +24,7 @@ $v_distant = (choco info -r --version=$version $name).split("|")[1]
 # Avoid to build package if there is a problem.
 if( [string]::IsNullOrEmpty($v_distant) )
 {
-    Write-Error "Cannot reach pkg version for $($name $version). Aborting script."
+    Write-Error "Cannot reach pkg version for $($name). Aborting script."
     Exit(1)
 }
 
