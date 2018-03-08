@@ -1,7 +1,7 @@
 ﻿$packageName = 'darktable'
 $installerType = 'EXE'
-$url = '{{DownloadUrl}}'
-$checksum = '{{Checksum}}'
+$url = '{{url}}'
+$checksum = '{{checksum}}'
 $checkumType = 'sha256'
 $silentArgs = '/S'
 $validExitCodes = @(0)
