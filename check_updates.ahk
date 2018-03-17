@@ -162,3 +162,19 @@ url = https://www.xmind.net%url%
 ; Create script and clean variables
 checkVersions()
 cleanVariables()
+
+; ### r
+name = r
+v_loc := parseLocal(name)
+
+; Parse distant version and url
+UrlDownloadToFile, https://www.stats.bris.ac.uk/R/bin/windows/base/release.htm, %A_ScriptDir%\temp.html
+FileRead, html, %A_ScriptDir%\temp.html
+FileDelete, %A_ScriptDir%\temp.html
+RegExMatch(html, "URL=R-([\w\.\-]*)-win.exe", version)
+v_dist := version1
+url = https://www.stats.bris.ac.uk/R/bin/windows/base/R-%version1%-win.exe
+
+; Create script and clean variables
+checkVersions()
+cleanVariables()
