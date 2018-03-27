@@ -28,7 +28,7 @@ Default Linux style hotkeys for copy (Ctrl+Shift+C) and paste (Ctrl+Shift+V)
     <licenseUrl>https://github.com/Eugeny/terminus/blob/master/LICENSE</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/terminus</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/terminus.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dbkblk/chocolatey_packages/master/ico/terminus.png</iconUrl>
     <docsUrl>https://github.com/Eugeny/terminus/wiki</docsUrl>
     <bugTrackerUrl>https://github.com/Eugeny/terminus/issues</bugTrackerUrl>
     <projectSourceUrl>https://github.com/Eugeny/terminus</projectSourceUrl>

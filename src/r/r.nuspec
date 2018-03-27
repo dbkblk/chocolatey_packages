@@ -16,7 +16,7 @@
     <licenseUrl>https://www.r-project.org/COPYING</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/r</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/r.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dbkblk/chocolatey_packages/master/ico/r.png</iconUrl>
     <docsUrl>https://cran.r-project.org/manuals.html</docsUrl>
     <bugTrackerUrl>https://www.r-project.org/bugs.html</bugTrackerUrl>
     <projectSourceUrl>https://github.com/wch/r-source</projectSourceUrl>

@@ -17,7 +17,7 @@ RawTherapee comprises a subset of image editing operations specifically aimed at
     <licenseUrl>http://www.gnu.org/copyleft/gpl.html</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/rawtherapee</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/rawtherapee.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dbkblk/chocolatey_packages/master/ico/rawtherapee.png</iconUrl>
     <docsUrl>http://rawtherapee.com/blog/documentation</docsUrl>
     <bugTrackerUrl>https://github.com/Beep6581/RawTherapee/issues</bugTrackerUrl>
     <projectSourceUrl>https://github.com/Beep6581/RawTherapee</projectSourceUrl>

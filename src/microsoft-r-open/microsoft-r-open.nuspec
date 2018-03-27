@@ -16,7 +16,7 @@
     <licenseUrl>https://mran.microsoft.com//faq/#mro-eula</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/microsoft-r-open</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/microsoft-r-open.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dbkblk/chocolatey_packages/master/ico/microsoft-r-open.png</iconUrl>
     <docsUrl>https://mran.microsoft.com//documents/getting-started/</docsUrl>
     <bugTrackerUrl>https://github.com/RevolutionAnalytics/RRO/issues</bugTrackerUrl>
     <projectSourceUrl>https://github.com/RevolutionAnalytics/RRO</projectSourceUrl>

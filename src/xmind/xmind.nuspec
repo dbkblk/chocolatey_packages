@@ -21,7 +21,7 @@
     <licenseUrl>https://www.xmind.net/license/</licenseUrl>
     <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/xmind</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://github.com/dbkblk/chocolatey_packages/raw/master/ico/xmind.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dbkblk/chocolatey_packages/master/ico/xmind.png</iconUrl>
     <docsUrl>https://www.xmind.net/faq/</docsUrl>
     <bugTrackerUrl>https://github.com/xmindltd/xmind/issues</bugTrackerUrl>
     <projectSourceUrl>https://github.com/xmindltd/xmind</projectSourceUrl>
