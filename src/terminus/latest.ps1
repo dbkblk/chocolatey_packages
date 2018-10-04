@@ -1,2 +1,2 @@
-$version = '1.0.0-alpha57'
-$url = 'https://github.com/Eugeny/terminus/releases/download/v1.0.0-alpha.57/terminus-Setup-1.0.0-alpha.57.exe'
+$version = '1.0.0-alpha58'
+$url = 'https://github.com/Eugeny/terminus/releases/download/v1.0.0-alpha.58/terminus-Setup-1.0.0-alpha.58.exe'
