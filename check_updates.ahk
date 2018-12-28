@@ -51,6 +51,8 @@ cleanVariables()
     global url =
 }
 
+; ### Git pull before any change
+RunWait, git pull,,Hide
 
 ; ### Darktable package
 name = darktable
