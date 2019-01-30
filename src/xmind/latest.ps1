@@ -1,2 +1,2 @@
-$version = '3.7.5'
-$url = 'https://www.xmind.net/xmind/downloads/xmind-8-update7-windows.exe'
+$version = '8u8'
+$url = 'https://www.xmind.net/xmind/downloads/xmind-8-update8-windows.exe'
