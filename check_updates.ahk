@@ -153,7 +153,7 @@ UrlDownloadToFile, https://www.xmind.net/download/xmind8, %A_ScriptDir%\temp.htm
 FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 RegExMatch(html, "/xmind\/downloads\/xmind-(\d*)-update(\d*)-windows.exe", url)
-v_dist = %url1%u%url2%
+v_dist = %url1%.%url2%
 url = https://www.xmind.net%url%
 
 ; Create script and clean variables
