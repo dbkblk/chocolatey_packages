@@ -8,6 +8,9 @@ if ( $commit.Contains('config:') )
     Exit(1)
 }
 
+Write-Host "#### Updating Chocolatey before packing ####"
+(cup -y chocolatey)
+
 $name = $commit.split('|')[0]
 $v_commit = $commit.split('|')[1]
 Write-Host "#### Processing $($name) v$($v_commit) ####"
