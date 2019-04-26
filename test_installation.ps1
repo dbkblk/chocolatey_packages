@@ -4,6 +4,9 @@ $name = $commit.split('|')[0]
 $Dir = Get-ChildItem .\src\$name\ -recurse
 $filename = $Dir | where {$_.extension -eq ".nupkg"} | % {$_.Name}
 
+Write-Host "#### Updating Chocolatey before testing ####"
+(cup -y chocolatey)
+
 # Installation test
 Write-Host "#### Testing installation ####"
 (choco install -v .\src\$name\$filename)
