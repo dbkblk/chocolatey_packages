@@ -10,7 +10,7 @@ $api_key = (Get-ChildItem env:CHOCO_API).Value
 
 Write-Host "#### Deploying package ####"
 (choco push -v .\src\$name\$filename)
-if ( $LASTEXITCODE -ne 0 )
+if ( ($LASTEXITCODE -ne 0) -or ($LASTEXITCODE -ne 524) )
 {
     Write-Error "An error has occured during the deployment."
     Exit(1)

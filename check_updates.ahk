@@ -102,7 +102,7 @@ FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 RegExMatch(html, "https://github.com/Microsoft/microsoft-r-open/commits/MRO-([\w\.\-]*).atom", version)
 v_dist := version1
-url = https://mran.blob.core.windows.net/install/mro/%v_dist%/microsoft-r-open-%v_dist%.exe
+url = https://mran.blob.core.windows.net/install/mro/%v_dist%/windows/microsoft-r-open-%v_dist%.exe
 
 ; Create script and clean variables
 checkVersions()
