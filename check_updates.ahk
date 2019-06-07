@@ -134,7 +134,7 @@ FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
 RegExMatch(html, "terminus\/releases\/download\/v[\w\.\-]*\/terminus-Setup-([\w\.\-]*).exe", version)
 v_dist := version1
-url = https://github.com/Eugeny/terminus/releases/download/v%v_dist%/terminus-Setup-%v_dist%.exe
+url = https://github.com/Eugeny/terminus/releases/download/v%v_dist%/terminus-%v_dist%-setup.exe
 
 ; Fix version numbering for Chocolatey
 StringReplace, v_dist, v_dist, alpha., alpha
