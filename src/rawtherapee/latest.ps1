@@ -1,2 +1,2 @@
-$version = '5.6'
-$url = 'http://rawtherapee.com/releases_head/windows/RawTherapee_5.6_WinVista_64.zip'
+$version = '5.7'
+$url = 'https://rawtherapee.com/shared/builds/windows/RawTherapee_5.7_WinVista_64.zip'

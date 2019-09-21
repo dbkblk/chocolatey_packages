@@ -116,9 +116,9 @@ v_loc := parseLocal(name)
 UrlDownloadToFile, http://rawtherapee.com/downloads, %A_ScriptDir%\temp.html
 FileRead, html, %A_ScriptDir%\temp.html
 FileDelete, %A_ScriptDir%\temp.html
-RegExMatch(html, "\/releases_head\/windows\/RawTherapee_([\w\.]*)_WinVista_64.zip", version)
+RegExMatch(html, "\/builds\/windows\/RawTherapee_([\w\.]*)_WinVista_64.zip", version)
 v_dist := version1
-url = http://rawtherapee.com/releases_head/windows/RawTherapee_%v_dist%_WinVista_64.zip
+url = https://rawtherapee.com/shared/builds/windows/RawTherapee_%v_dist%_WinVista_64.zip
 
 ; Create script and clean variables
 checkVersions()
