@@ -11,6 +11,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"regexp"
+	"strings"
 )
 
 // GetLocalVersion - Check local version string
@@ -19,9 +20,9 @@ func GetLocalVersion(name string) string {
 	CheckError(err)
 
 	// DEBUG Path hardcode
-	scriptPath = "/home/hadrien/Dev/chocolatey/"
+	// scriptPath = "/home/hadrien/Dev/chocolatey/"
 
-	versionPath := filepath.Join(scriptPath, "src", name, "latest.ps1")
+	versionPath := filepath.Join(filepath.Dir(scriptPath), "src", name, "latest.ps1")
 	dat, err := ioutil.ReadFile(versionPath)
 
 	// Return a null version if impossible
@@ -111,9 +112,9 @@ func PushUpdate(name, version, url string) {
 	CheckError(err)
 
 	// DEBUG Path hardcode
-	scriptPath = "/home/hadrien/Dev/chocolatey/"
+	// scriptPath = "/home/hadrien/Dev/chocolatey/"
 
-	versionPath := filepath.Join(scriptPath, "src", name, "latest.ps1")
+	versionPath := filepath.Join(filepath.Dir(scriptPath), "src", name, "latest.ps1")
 
 	d1 := []byte("$version = '" + version + "'\n$url = '" + url + "'")
 	err = ioutil.WriteFile(versionPath, d1, 0644)
@@ -126,28 +127,74 @@ func PushUpdate(name, version, url string) {
 	LaunchCommand(exec.Command("git", "push"))
 }
 
+// PackageRoutine - Standard routine for checking and updating packages
+func PackageRoutine(name, webpage, regex, preparedUrl string) {
+	Log("Checking -> " + name + "\n")
+	local := GetLocalVersion(name)
+	distant := GetDistantVersion(webpage, regex)
+
+	if distant > local {
+		url := strings.Replace(preparedUrl, "{{version}}", distant, -1)
+		PushUpdate(name, distant, url)
+	}
+}
+
 // Main function
 func main() {
-	fmt.Println("Chocolatey package check")
+	Log("Chocolatey package check\n")
 
 	// Launch git pull command
 	LaunchCommand(exec.Command("git", "pull"))
 
-	// Homebank package
-	homebankLocal := GetLocalVersion("homebank")
-	homebankDistant := GetDistantVersion("http://homebank.free.fr/downloads.php", `/public/HomeBank-([\w\.\-]*)-setup.exe">&gt; HomeBank-`)
+	// Routines
+	PackageRoutine(
+		"homebank",
+		"http://homebank.free.fr/downloads.php",
+		`/public/HomeBank-([\w\.\-]*)-setup.exe">&gt; HomeBank-`,
+		"http://homebank.free.fr/public/HomeBank-{{version}}-setup.exe",
+	)
 
-	if homebankDistant > homebankLocal {
-		url := "http://homebank.free.fr/public/HomeBank-" + homebankDistant + "-setup.exe"
-		PushUpdate("homebank", homebankDistant, url)
+	PackageRoutine(
+		"darktable",
+		"https://github.com/darktable-org/darktable/releases/latest",
+		`release-[\w\.\-]*\/darktable-([\w\.\-]*)-win64.exe`,
+		"https://github.com/darktable-org/darktable/releases/download/release-{{version}}/darktable-{{version}}-win64.exe",
+	)
+
+	PackageRoutine(
+		"microsoft-r-open",
+		"https://github.com/Microsoft/microsoft-r-open/releases/latest",
+		`https://github.com/Microsoft/microsoft-r-open/commits/MRO-([\w\.\-]*).atom`,
+		"https: //mran.blob.core.windows.net/install/mro/{{version}}/windows/microsoft-r-open-{{version}}.exe",
+	)
+
+	PackageRoutine(
+		"rawtherapee",
+		"http://rawtherapee.com/downloads",
+		`\/builds\/windows\/RawTherapee_([\w\.]*)_WinVista_64.zip`,
+		"https://rawtherapee.com/shared/builds/windows/RawTherapee_{{version}}_WinVista_64.zip",
+	)
+
+	PackageRoutine(
+		"terminus",
+		"https://github.com/Eugeny/terminus/releases/latest",
+		`terminus\/releases\/download\/v[\w\.\-]*\/terminus-([\w\.\-]*)-setup.exe`,
+		"https://github.com/Eugeny/terminus/releases/download/v{{version}}/terminus-{{version}}-setup.exe",
+	)
+
+	// Manual routine for xmind, because of the weird version numdering
+	name := "xmind"
+	Log("Checking -> " + name + "\n")
+	local := GetLocalVersion(name)
+	page := GetPage("https://www.xmind.net/download/xmind8")
+	version1 := GetFirstMatch(page, `/xmind\/downloads\/xmind-(\d*)-update[\d*]-windows.exe`)
+	version2 := GetFirstMatch(page, `/xmind\/downloads\/xmind-[\d*]-update(\d*)-windows.exe`)
+	distant := version1 + "." + version2
+
+	if distant > local {
+		url := "https://www.xmind.net/xmind/downloads/xmind-" + version1 + "-update" + version2 + "-windows.exe"
+		PushUpdate(name, distant, url)
 	}
 
-	// Darktable package
-	darktableLocal := GetLocalVersion("darktable")
-	darktableDistant := GetDistantVersion("https://github.com/darktable-org/darktable/releases/latest", `release-[\w\.\-]*\/darktable-([\w\.\-]*)-win64.exe`)
-
-	if darktableDistant > darktableLocal {
-		url := "https://github.com/darktable-org/darktable/releases/download/release-" + darktableDistant + "/darktable-" + darktableDistant + "-win64.exe"
-		PushUpdate("darktable", darktableDistant, url)
-	}
+	Log("Chocolatey package check ended\n")
 }
