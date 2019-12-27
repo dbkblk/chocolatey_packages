@@ -20,7 +20,7 @@ func GetLocalVersion(name string) string {
 	CheckError(err)
 
 	// DEBUG Path hardcode
-	// scriptPath = "/home/hadrien/Dev/chocolatey/"
+	// scriptPath = "/mnt/disk/projects/chocolatey_packages/"
 
 	versionPath := filepath.Join(filepath.Dir(scriptPath), "src", name, "latest.ps1")
 	dat, err := ioutil.ReadFile(versionPath)
@@ -112,7 +112,7 @@ func PushUpdate(name, version, url string) {
 	CheckError(err)
 
 	// DEBUG Path hardcode
-	// scriptPath = "/home/hadrien/Dev/chocolatey/"
+	// scriptPath = "/mnt/disk/projects/chocolatey_packages/"
 
 	versionPath := filepath.Join(filepath.Dir(scriptPath), "src", name, "latest.ps1")
 
@@ -142,6 +142,10 @@ func PackageRoutine(name, webpage, regex, preparedUrl string) {
 // Main function
 func main() {
 	Log("Chocolatey package check\n")
+
+	// Change software location
+	err := os.Chdir("/home/hadrien/conf/chocolatey_packages/")
+	CheckError(err)
 
 	// Launch git pull command
 	LaunchCommand(exec.Command("git", "pull"))
