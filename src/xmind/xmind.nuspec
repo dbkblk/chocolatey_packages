@@ -18,8 +18,8 @@
     <projectUrl>http://www.xmind.net/</projectUrl>
     <tags>admin xmind mind map</tags>
     <copyright>© XMind Ltd</copyright>
-    <licenseUrl>https://www.xmind.net/license/</licenseUrl>
-    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/xmind</packageSourceUrl>
+    <licenseUrl>https://www.xmind.net/faq/</licenseUrl>
+    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/src/xmind</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/dbkblk/chocolatey_packages/master/ico/xmind.png</iconUrl>
     <docsUrl>https://www.xmind.net/faq/</docsUrl>
