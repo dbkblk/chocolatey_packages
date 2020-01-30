@@ -1,3 +1,4 @@
 *.ffs_db
 packed/
 tmp/
+__pycache__/
