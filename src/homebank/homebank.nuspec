@@ -16,7 +16,7 @@ If you are looking for a completely free and easy application to manage your per
     <tags>admin homebank finance accounting</tags>
     <copyright>© Maxime Doyen</copyright>
     <licenseUrl>http://www.gnu.org/copyleft/gpl.html</licenseUrl>
-    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/homebank</packageSourceUrl>
+    <packageSourceUrl>https://github.com/dbkblk/chocolatey_packages/tree/master/src/homebank</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://raw.githubusercontent.com/dbkblk/chocolatey_packages/master/ico/homebank.png</iconUrl>
     <docsUrl>http://homebank.free.fr/help/</docsUrl>
