@@ -33,5 +33,6 @@ for p in packages:
         if not versionFound:
             print("Pushing -> " + p + " | " + version)
             subprocess.getoutput('choco push ' + f)
-
+            subprocess.getoutput('git add src\\' + p + '\\latest.json')
+            subprocess.getoutput('git commit -m \"' + p + '|' + version + '\"')
 
