@@ -2,3 +2,4 @@
 packed/
 tmp/
 __pycache__/
+.vscode/

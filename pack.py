@@ -32,13 +32,6 @@ for p in packages:
         urllib.request.urlretrieve(versionLocalData["url"], "tmp/tmpfile")  # DEBUG
         checksum = func.GetFileChecksum("tmp/tmpfile") 
 
-        # Special cases checksums (ex: RawTherapee)
-        checksumExe = ""
-        if(p == "rawtherapee"):
-            with zipfile.ZipFile("tmp/tmpfile", 'r') as zip_ref:
-                zip_ref.extractall("tmp/")
-                checksumExe = func.GetFileChecksum("tmp/RawTherapee_" + versionLocal + "_WinVista_64.exe")
-
         # Loading source files
         fileNuspec = func.GetFileContent("src/" + p + "/" + p + ".nuspec")
         fileInstall = func.GetFileContent("src/" + p + "/tools/chocolateyinstall.ps1")
@@ -46,8 +39,6 @@ for p in packages:
         # Replace variables
         fileNuspec = fileNuspec.replace("{{version}}", versionLocal)
         fileInstall = fileInstall.replace("{{checksum}}", checksum).replace("{{url}}", versionLocalData["url"])
-        if(checksumExe):
-            fileInstall = fileInstall.replace("{{checksumExe}}", checksumExe)
 
         if not os.path.isdir("tmp/tools"):
             os.mkdir("tmp/tools")

@@ -40,6 +40,6 @@ PackageRoutine("darktable", "https://github.com/darktable-org/darktable/releases
 
 PackageRoutine("microsoft-r-open", "https://github.com/Microsoft/microsoft-r-open/releases/latest", r'https://github.com/Microsoft/microsoft-r-open/commits/MRO-([\w\.\-]*).atom', "https: //mran.blob.core.windows.net/install/mro/{{version}}/windows/microsoft-r-open-{{version}}.exe")
 
-PackageRoutine("rawtherapee", "http://rawtherapee.com/downloads", r'\/builds\/windows\/RawTherapee_([\w\.]*)_WinVista_64.zip', "https://rawtherapee.com/shared/builds/windows/RawTherapee_{{version}}_WinVista_64.zip")
+PackageRoutine("rawtherapee", "http://rawtherapee.com/downloads/", r'\/shared\/builds\/windows\/RawTherapee_([\w\.]*).exe', "https://rawtherapee.com/shared/builds/windows/RawTherapee_{{version}}.exe")
 
 PackageRoutine("terminus", "https://github.com/Eugeny/terminus/releases/latest", r'terminus\/releases\/download\/v[\w\.\-]*\/terminus-([\w\.\-]*)-setup.exe', "https://github.com/Eugeny/terminus/releases/download/v{{version}}/terminus-{{version}}-setup.exe")
