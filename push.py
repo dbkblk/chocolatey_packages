@@ -14,7 +14,7 @@ print(packages)
 
 for p in packages:
     print("Checking versions -> " + p)
-    distantVersions = subprocess.getoutput('choco list --all -r ' + p).split('\n')
+    distantVersions = subprocess.getoutput('choco search --all -r ' + p).split('\n')
 
     # Get the packed files
     files = glob.glob("packed\\" + p + "*.nupkg")
