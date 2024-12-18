@@ -19,7 +19,7 @@ for p in packages:
     print("Checking -> " + p)
     # versionPublished = subprocess.getoutput('choco search -r --pre ' + p).split('|')[1]
     versionLocalData = func.GetLocalData(p)
-    versionLocal = versionLocalData["version"]
+    versionLocal = versionLocalData["version"].strip()
 
     if not os.path.exists("packed/" + p + "." + versionLocal + ".nupkg"):
         print("Packing -> " + p + " | " + versionLocal)
